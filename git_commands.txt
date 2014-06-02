@@ -1,2 +1,19 @@
 // to list current git configs
 git config --list
+
+// steps to create a new git repo
+
+1. go to www.github.com
+2. login and go to https://github.com/new and create a new repo with name say "testing"
+3.
+        a. create a new repo on the commandline
+                touch README.md
+                git init
+                git add README.md
+                git commit -m "first commit"
+                git remote add origin https://github.com/nishu271/testing.git
+                git push -u origin master
+        b. push an existing repo from commandline
+                git remote add origin https://github.com/nishu271/testing.git
+                git push -u origin master
+
