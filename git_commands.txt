@@ -1,0 +1,2 @@
+// to list current git configs
+git config --list
