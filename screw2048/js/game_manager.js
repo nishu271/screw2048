@@ -77,12 +77,15 @@ GameManager.prototype.addRandomTile = function () {
 
 // Sends the updated grid to the actuator
 GameManager.prototype.actuate = function () {
-  if (this.storageManager.getBestScore() < this.score) {
-    this.storageManager.setBestScore(this.score);
-  }
+  //if (this.storageManager.getBestScore() < this.score) {
+  //  this.storageManager.setBestScore(this.score);
+  //}
 
   // Clear the state when the game is over (game over only, not win)
   if (this.over) {
+	  if (this.storageManager.getBestScore() > this.score) {
+	    this.storageManager.setBestScore(this.score);
+	  } 
     this.storageManager.clearGameState();
   } else {
     this.storageManager.setGameState(this.serialize());
@@ -174,7 +177,7 @@ GameManager.prototype.move = function (direction) {
 
         if (!self.positionsEqual(cell, tile)) {
           moved = true; // The tile moved from its original cell!
-        }
+        } 
       }
     });
   });

@@ -22,10 +22,11 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     });
 
     self.updateScore(metadata.score);
-    self.updateBestScore(metadata.bestScore);
+    //self.updateBestScore(metadata.bestScore);
 
     if (metadata.terminated) {
       if (metadata.over) {
+		  self.updateBestScore(metadata.bestScore);
         self.message(false); // You lose
       } else if (metadata.won) {
         self.message(true); // You win!
@@ -126,7 +127,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 
 HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "You win!" : "Game over!";
+  var message = won ? "Such a shame, you can't get yourself to even screw it properly, you are a true 2048 addict!" : "Good for you, you finally screwed it!";
 
   this.messageContainer.classList.add(type);
   this.messageContainer.getElementsByTagName("p")[0].textContent = message;
