@@ -1,15 +1,18 @@
 function HTMLActuator() {
+	//window.alert("actuator");
   this.tileContainer    = document.querySelector(".tile-container");
   this.scoreContainer   = document.querySelector(".score-container");
+  this.movesContainer   = document.querySelector(".moves-container");
   this.bestContainer    = document.querySelector(".best-container");
+  this.minContainer 	= document.querySelector(".min-container");
   this.messageContainer = document.querySelector(".game-message");
-
   this.score = 0;
+  this.moves = 0;
 }
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
-
+ // window.alert("in actuate");
   window.requestAnimationFrame(function () {
     self.clearContainer(self.tileContainer);
 
@@ -22,11 +25,13 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
     });
 
     self.updateScore(metadata.score);
+	self.updateMoves(metadata.moves);
     //self.updateBestScore(metadata.bestScore);
 
     if (metadata.terminated) {
       if (metadata.over) {
 		  self.updateBestScore(metadata.bestScore);
+		  self.updateMinMoves(metadata.minMoves);
         self.message(false); // You lose
       } else if (metadata.won) {
         self.message(true); // You win!
@@ -103,6 +108,17 @@ HTMLActuator.prototype.positionClass = function (position) {
   position = this.normalizePosition(position);
   return "tile-position-" + position.x + "-" + position.y;
 };
+
+HTMLActuator.prototype.updateMoves = function (moves) {
+  this.clearContainer(this.movesContainer);
+  this.moves = moves;
+  this.movesContainer.textContent = this.moves;
+};
+
+HTMLActuator.prototype.updateMinMoves = function (minMoves) {
+  this.minContainer.textContent = minMoves;
+};
+
 
 HTMLActuator.prototype.updateScore = function (score) {
   this.clearContainer(this.scoreContainer);

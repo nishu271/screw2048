@@ -50,7 +50,7 @@ h1.title {
   float: right;
   text-align: right; }
 
-.score-container, .best-container {
+.score-container, .best-container, .moves-container, .min-container {
   position: relative;
   display: inline-block;
   background: #bbada0;
@@ -63,7 +63,7 @@ h1.title {
   color: white;
   margin-top: 8px;
   text-align: center; }
-  .score-container:after, .best-container:after {
+  .score-container:after, .best-container:after, .moves-container:after, .min-container:after {
     position: absolute;
     width: 100%;
     top: 10px;
@@ -94,7 +94,13 @@ h1.title {
 
 .best-container:after {
   content: "Best"; }
-
+  
+.moves-container:after {
+	content: "Moves";
+}
+.min-container:after {
+	content: "MinMoves";
+}
 p {
   margin-top: 0;
   margin-bottom: 10px;
