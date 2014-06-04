@@ -1,5 +1,4 @@
 function GameManager(size, InputManager, Actuator, StorageManager) {
-	//window.alert("game");
   this.size           = size; // Size of the grid
   this.inputManager   = new InputManager;
   this.storageManager = new StorageManager;
@@ -34,7 +33,6 @@ GameManager.prototype.isGameTerminated = function () {
 
 // Set up the game
 GameManager.prototype.setup = function () {
-	//window.alert("GameManager.setup");
   var previousState = this.storageManager.getGameState();
 
   // Reload the game from a previous game if present

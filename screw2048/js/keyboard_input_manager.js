@@ -1,6 +1,5 @@
 function KeyboardInputManager() {
   this.events = {};
-  //window.alert("in keyboard");
   if (window.navigator.msPointerEnabled) {
     //Internet Explorer 10 style
     this.eventTouchstart    = "MSPointerDown";

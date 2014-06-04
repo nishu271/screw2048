@@ -1,5 +1,4 @@
 function HTMLActuator() {
-	//window.alert("actuator");
   this.tileContainer    = document.querySelector(".tile-container");
   this.scoreContainer   = document.querySelector(".score-container");
   this.movesContainer   = document.querySelector(".moves-container");
@@ -12,7 +11,6 @@ function HTMLActuator() {
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
- // window.alert("in actuate");
   window.requestAnimationFrame(function () {
     self.clearContainer(self.tileContainer);
 

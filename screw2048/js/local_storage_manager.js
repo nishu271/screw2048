@@ -41,7 +41,6 @@ LocalStorageManager.prototype.localStorageSupported = function () {
 // Best score getters/setters
 LocalStorageManager.prototype.getMinMoves = function () {
 	var ret = this.storage.getItem(this.minMovesKey);
-	//window.alert(ret);
   if (ret) return ret;
   else return 100000;
 };
@@ -49,7 +48,6 @@ LocalStorageManager.prototype.getMinMoves = function () {
 // Best score getters/setters
 LocalStorageManager.prototype.getBestScore = function () {
 	var ret = this.storage.getItem(this.bestScoreKey);
-	//	window.alert(ret);
   if (ret) return ret;
   else return 100000;
 };
